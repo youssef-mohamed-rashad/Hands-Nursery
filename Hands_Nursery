@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands Nursery & Preschool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --main-orange: #FFA500;
+            --accent-green: #4CAF50;
+            --accent-purple: #9C27B0;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--gray);
+            color: #333;
+        }
+
+        header {
+            background-color: var(--main-orange);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background-color: var(--accent-purple);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+    position: relative;
+    background: url('han.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+
+    color: var(--white);
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px #000;
+}
+
+        .content-section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .carousel-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.banner-section {
+    margin: 0;
+    padding: 0;
+}
+
+.banner-image {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-image: url('486545587_1158875196250066_204508726242373992_n.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 165, 0, 0.4); /* warm orange tint */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner-overlay h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.caption {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    max-width: 80%;
+}
+
+.caption h3 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+}
+
+.caption p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}
+
+.learn-btn {
+    background-color: var(--main-orange);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.learn-btn:hover {
+    background-color: var(--accent-green);
+}
+
+.programs {
+    background-color: var(--gray);
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.programs-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.programs-wrapper h2 {
+    font-size: 2.2rem;
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+}
+
+.programs-wrapper p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.program-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.program-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-card h3 {
+    margin-top: 0;
+    color: var(--main-orange);
+    font-size: 1.3rem;
+}
+
+.program-card p {
+    font-size: 1rem;
+    color: #444;
+}
+
+.program-cta .learn-btn {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 2px solid var(--main-orange);
+    color: var(--main-orange);
+    font-size: 1.8rem;
+    border-radius: 50%;
+    padding: 12px 16px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: var(--main-orange);
+    color: white;
+    border-color: var(--accent-green);
+}
+
+.carousel-btn.left {
+    left: 15px;
+}
+
+.carousel-btn.right {
+    right: 15px;
+}
+        .contact {
+    background-color: #fff3e0;
+    border-radius: 20px;
+    padding: 40px 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact h2 {
+    text-align: center;
+    color: #ff8c00;
+    font-size: 2rem;
+}
+
+.contact-form-wrapper {
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff8dc;
+    border-radius: 15px;
+    padding: 30px;
+    border: 3px dotted #86c715;
+}
+
+.contact form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #790964;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    box-shadow: inset 2px 2px 5px rgba(255, 165, 0, 0.1);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    border-color: #fa8108;
+    background-color: #fff0f5;
+}
+
+.contact button {
+    width: 100%;
+    background-color: #f76c08;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact button:hover {
+    background-color: #ff5e14;
+}
+
+        footer {
+    background-color: var(--accent-green);
+    color: var(--white);
+    padding: 30px 20px 10px;
+    font-size: 0.95rem;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.footer-info {
+    margin-bottom: 15px;
+}
+
+.footer-info h3 {
+    margin: 0 0 10px;
+}
+
+.footer-social a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--main-orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+}
+
+
+    </style>
+    <link rel="icon" href="989581bf-caa9-4d57-bf30-e78ef249f572.jpg" type="image/x-icon"/>
+</head>
+
+<body>
+    <header>
+        <h1>Hands Nursery & Preschool</h1>
+        <p>Plant The Seeds Of Tomorrow Harvest</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-overlay">
+            <h2>Inspiring Young Minds</h2>
+        </div>
+    </div>
+
+    <section class="content-section about" id="about">
+        <h2>About Us</h2>
+        <p>At Hands Nursery & Preschool, we provide a warm, nurturing environment that encourages creativity, exploration, and early learning. Our programs are designed to support children’s emotional, social, and cognitive development.</p>
+    </section>
+    <section class="banner-section">
+        <div class="banner-image">
+            <div class="banner-overlay">
+                <h2>“Every child is a different kind of flower, and all together, they make this world a beautiful garden.”</h2>
+            </div>
+        </div>
+    </section>
+
+   <section class="programs" id="programs">
+    <div class="programs-wrapper">
+        <h2>Our Programs</h2>
+        <p>We offer a range of thoughtfully crafted programs that nurture growth, creativity, and confidence in every child.</p>
+        <div class="program-list">
+            <div class="program-card">
+                <h3>Toddler Care</h3>
+                <p>Providing a safe, playful space for our youngest learners.</p>
+            </div>
+            <div class="program-card">
+                <h3>Preschool</h3>
+                <p>Building strong foundations in literacy, math, and social skills.</p>
+            </div>
+            <div class="program-card">
+                <h3>Creative Arts</h3>
+                <p>Inspiring imagination through art, drama, and craft activities.</p>
+            </div>
+            <div class="program-card">
+                <h3>Outdoor Play</h3>
+                <p>Encouraging healthy development through fun outdoor exploration.</p>
+            </div>
+            <div class="program-card">
+                <h3>Music & Movement</h3>
+                <p>Enhancing coordination and joy with rhythm, dance, and music.</p>
+            </div>
+        </div>
+        <div class="program-cta">
+            <button class="learn-btn">Learn More About Our Programs</button>
+        </div>
+    </div>
+</section>
+
+    <section class="content-section contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form-wrapper">
+            <form onsubmit="submitForm(event)">
+                <label for="name"> Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+    
+                <label for="email"> Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+    
+                <label for="message">✏️ Your Message</label>
+                <textarea id="message" rows="4" placeholder="Type your message here..." required></textarea>
+    
+                <button type="submit"> Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Hands Nursery & Preschool</h3>
+                <p>123 Learning Lane, Kids City, EG</p>
+                <p>Email: info@handsnursery.com | Phone: +20 123 456 789</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hands Nursery & Preschool. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+const carousel = document.querySelector('.carousel');
+const totalSlides = document.querySelectorAll('.carousel img').length;
+
+function moveSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+    if (currentSlide >= totalSlides) currentSlide = 0;
+    const width = document.querySelector('.carousel-container').offsetWidth;
+    carousel.style.transform = `translateX(-${currentSlide * width}px)`;
+}
+
+window.addEventListener('resize', () => moveSlide(0)); // Adjust on resize
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert("Thank you for your message! We'll get back to you soon.");
+        }
+    </script>
+</body>
+
+</html>
